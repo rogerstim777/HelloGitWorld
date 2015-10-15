@@ -25,6 +25,9 @@ namespace HelloWorldGit
         public MainPage()
         {
             this.InitializeComponent();
+
+            mainFrame.Navigate(typeof(Hello));
+
         }
 
         private void mainPaneRadioButton_Click(object sender, RoutedEventArgs e)
@@ -36,6 +39,7 @@ namespace HelloWorldGit
                 switch (radioButton.Tag.ToString())
                 {
                     case "Hello":
+                        mainFrame.Navigate(typeof(Hello));
                         break;
                     case "Search":
                         break;

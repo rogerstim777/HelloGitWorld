@@ -59,7 +59,7 @@
                                  Click="mainPaneRadioButton_Click">
                             <StackPanel Orientation="Horizontal">
                                 <SymbolIcon Symbol="Audio" />
-                                <TextBlock Text="Recordings" 
+                                <TextBlock Text="Hello" 
                                        Margin="15,0,0,0" />
                             </StackPanel>
                         </RadioButton>
