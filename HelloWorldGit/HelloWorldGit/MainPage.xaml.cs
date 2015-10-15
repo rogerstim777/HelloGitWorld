@@ -26,5 +26,31 @@ namespace HelloWorldGit
         {
             this.InitializeComponent();
         }
+
+        private void mainPaneRadioButton_Click(object sender, RoutedEventArgs e)
+        {
+            var radioButton = sender as RadioButton;
+
+            if (radioButton != null)
+            {
+                switch (radioButton.Tag.ToString())
+                {
+                    case "Hello":
+                        break;
+                    case "Search":
+                        break;
+                    case "Settings":
+                        break;
+                    case "About":
+                        break;
+                }
+            }
+        }
+
+        private void HambergerButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainSplitView.IsPaneOpen = MainSplitView.IsPaneOpen ? false : true;
+        }
+
     }
 }

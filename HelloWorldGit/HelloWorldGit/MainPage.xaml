@@ -8,6 +8,112 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup>
+                    <VisualState x:Name="Narrow">
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="0" />
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+                            <Setter Target="MainSplitView.DisplayMode"
+                                Value="Overlay"/>
+                            <Setter Target="MainSplitView.IsPaneOpen"
+                                Value="Fasle" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Compact">
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="720" />
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+                            <Setter Target="MainSplitView.DisplayMode"
+                                Value="CompactOverlay"/>
+                            <Setter Target="MainSplitView.IsPaneOpen"
+                                Value="Fasle" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Wide">
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="1920" />
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+                            <Setter Target="MainSplitView.DisplayMode"
+                                Value="CompactInline"/>
+                            <Setter Target="MainSplitView.IsPaneOpen"
+                                Value="True" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+
+
+
+            <SplitView x:Name="MainSplitView" 
+                   DisplayMode="CompactInline" 
+                   IsPaneOpen="True">
+                <SplitView.Pane>
+                    <StackPanel Orientation="Vertical" Margin="0,30,0,0">
+                        <RadioButton x:Name="mainPaneHelloRadioButton" 
+                                 Tag="Hello" 
+                                 Click="mainPaneRadioButton_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <SymbolIcon Symbol="Audio" />
+                                <TextBlock Text="Recordings" 
+                                       Margin="15,0,0,0" />
+                            </StackPanel>
+                        </RadioButton>
+
+                        <RadioButton x:Name="mainPaneSearchRadioButton" 
+                                 Tag="Search"
+                                 Click="mainPaneRadioButton_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <SymbolIcon Symbol="Find" />
+                                <TextBlock Text="Search" 
+                                       Margin="15,0,0,0" />
+                            </StackPanel>
+                        </RadioButton>
+
+                        <RadioButton x:Name="mainPaneSettingsRadioButton" 
+                                 Tag="Settings"
+                                 Click="mainPaneRadioButton_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <SymbolIcon Symbol="Setting" />
+                                <TextBlock Text="Settings" 
+                                       Margin="15,0,0,0" />
+                            </StackPanel>
+                        </RadioButton>
+
+                        <RadioButton x:Name="mainPaneAboutRadioButton" 
+                                 Tag="About"
+                                 Click="mainPaneRadioButton_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <SymbolIcon Symbol="Help" />
+                                <TextBlock Text="About" 
+                                       Margin="15,0,0,0" />
+                            </StackPanel>
+                        </RadioButton>
+
+
+
+                    </StackPanel>
+                </SplitView.Pane>
+
+                <Frame x:Name="mainFrame" />
+
+            </SplitView>
+            <Button x:Name="HambergerButton" 
+                Width="{Binding ElementName=MySplitView, Path=CompactPaneLength}" 
+                VerticalAlignment="Top"
+                Click="HambergerButton_Click">
+                <StackPanel>
+                    <Rectangle Width="15" Height="2" Margin="2" Fill="White" />
+                    <Rectangle Width="15" Height="2" Margin="2" Fill="White" />
+                    <Rectangle Width="15" Height="2" Margin="2" Fill="White" />
+                </StackPanel>
+            </Button>
+
+        </Grid>
 
     </Grid>
 </Page>
